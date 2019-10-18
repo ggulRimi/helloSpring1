@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+	<!-- resultType이나 paramaterType에서 클래스 명을 적을떄 패키지명까지 입력을 해야하는 번거로움이 있음
+	에를 들어 resultType="org.hello.domain.BoardVO"이런식으로
+	패키지 명을 생략하기 위해서 아래를 추가함.
+	그럼 BoardVO만 적으면 됨. -->
+<configuration>
+    <typeAliases>
+        <package name="org.hello.domain"/>
+    </typeAliases>
+ 
+</configuration>
+ 
+
+
+

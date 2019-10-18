@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ 
+<mapper namespace="org.hello.mapper.BoardMapper">
+
+
+	<!-- 게시판 추가하기 -->
+	<insert id="insertBoard" parameterType="org.hello.domain.BoardVO">
+		insert into hello_board (b_title,b_writer,b_detail,b_date) values(#{b_title},#{b_writer},#{b_detail},SYSDATE())
+	</insert>
+	
+	<!-- 게시판 리스트보기 -->
+	<select id="listBoard" resultType="org.hello.domain.BoardVO">
+	<![CDATA[
+		select * from hello_board
+		order by b_no DESC
+	]]>
+	</select>	
+	
+	<!-- 게시판 상세보기 -->
+	<select id="datailBoard" resultType="org.hello.domain.BoardVO">
+		select * from hello_board where b_no = #{b_no}
+	</select>
+	
+	<!-- 게시판 삭제하기 -->
+	<delete id="deleteBoard">
+		delete from hello_board where b_no = #{b_no}
+	</delete>
+	
+	<!-- 게시판 수정하기 -->
+	<update id="updateBoard">
+		update hello_board set b_title=#{b_title},b_detail=#{b_datail} where b_no=#{b_no} 
+	</update>
+	
+</mapper>
